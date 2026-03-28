@@ -1,6 +1,6 @@
 # `chemeleon_atropisomers`
 
-Comparing [`CheMeleon`](https://arxiv.org/abs/2506.15792), [Physicochemical Random Forest](https://github.com/basf/MolPipeline/blob/4caf00f6c530b5cd92b34501ea2bcfd172b7412b/molpipeline/predefined_pipelines/baselines.py#L160), and [UniMol2](https://arxiv.org/abs/2406.14969) for atropisomer rotational barrier detection, dataset from [_Physicochemically Informed Axial Chirality Descriptors Enable Accurate Prediction of Atropisomeric Stability_](https://doi.org/10.1002/anie.202521349).
+Comparing [`CheMeleon`](https://arxiv.org/abs/2506.15792), [Physicochemical Random Forest](https://github.com/basf/MolPipeline/blob/4caf00f6c530b5cd92b34501ea2bcfd172b7412b/molpipeline/predefined_pipelines/baselines.py#L160), and [UniMol2](https://arxiv.org/abs/2406.14969) for atropisomer rotational barrier prediction, dataset from [_Physicochemically Informed Axial Chirality Descriptors Enable Accurate Prediction of Atropisomeric Stability_](https://doi.org/10.1002/anie.202521349).
 
 ## Usage
 
@@ -19,6 +19,24 @@ For the other plotting and splitting code, you need: `scikit-learn pandas matplo
 
 Each toolkit (CheMeleon, MolPipeline, UniMol2) has a separate script in its own directory.
 You can run each model by navigating to that directory and executing the corresponding shell script or Python file.
+
+### Predictions Only
+
+Since the dataset can't be included alongside the code, I've included a single trained `CheMeleon` model for use in prediction, in case you really want to just predict rotational barrier.
+First format your data into a CSV like this:
+
+```csv
+SMILES,T
+C,298
+```
+
+You can call it like this:
+
+```bash
+chemprop predict --test-path data.csv --descriptors-columns T --smiles-columns SMILES --model-paths chemeleon_atropisomers.pt
+```
+
+You can also specify `--output` to control where the resulting predictions go, i.e. `--output ~/my_stuff/chemeleon_atropisomer_predictions.csv`.
 
 ## Results
 
