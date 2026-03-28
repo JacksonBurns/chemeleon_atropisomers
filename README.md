@@ -7,7 +7,7 @@ Comparing [`CheMeleon`](https://arxiv.org/abs/2506.15792), [Physicochemical Rand
 This work is based on the dataset described in: 10.1002/anie.202521349 - this dataset is **not publicly distributed**; to run this code, reach out to the original authors and request a copy of it.
 The _code_ in this repository is permissively licensed (see [LICENSE](./LICENSE)) under the MIT license.
 
-From there, to get the code up and running you just need the following dependencies:
+From there, to get the code up and running you just need the following dependencies (I used Python 3.13, but 3.11 and 3.12 should also work):
 `pip install chemprop 'pandas<3' molpipeline scikit-learn unimol_tools huggingface_hub`
 
 If you want to run only one model, you can just install:
